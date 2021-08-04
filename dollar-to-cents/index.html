@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dollar to Cents</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Real Exchange Rate Dollar to Cents</h1>
+    <div class="converter">
+      <div class="from">
+        <p>From</p>
+        <h4>Dollar - America</h4>
+        <div class="wrap-from">
+          <input type="number" id="dollar" class="dollar" value="0">
+        </div>
+        <p class="error"></p>
+      </div>
+      <div class="to">
+        <p>To</p>
+        <h4>Cents</h4>
+        <div class="coins">
+          <p class="quarters"><span id="quarters">0</span> Quarters</p>
+          <p class="dimes"><span id="dimes">0</span> Dimes</p>
+          <p class="nickel"><span id="nickel">0</span> Nickel</p>
+          <p class="pennies"><span id="pennies">0</span> Pennies</p>
+        </div>
+        <h5 class="sum">Total: <span id="result">0</span> Coins</h5>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>

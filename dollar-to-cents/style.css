@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+:root {
+  --primary-color: #171010;
+  --half-color-one: #50CB93;
+  --half-color-two: #ACFFAD;
+  --button-color: #71EFA3;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(to right , var(--half-color-one) 50%, var(--half-color-two) 50%);
+  line-height: 1.5;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  margin: 40px auto;
+  display: block;
+  max-width: 900px;
+}
+
+.container h1{
+  text-align: center;
+}
+
+.converter {
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+.from input{
+  border: none;
+  outline: none;
+  background: none;
+  margin-top: 10px;
+  border-bottom: 2px solid var(--primary-color);
+  font-size: 5rem;
+  width: 75%;
+  appearance: none;
+}
+
+.to {
+  max-width: 600px;
+}
+
+.to .coins {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+  font-size: 1.8rem;
+}
+
+.to .sum {
+  margin: 10px 0 0;
+  font-size: 2rem;
+}
+
