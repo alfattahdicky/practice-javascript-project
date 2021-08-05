@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Cycle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrap-color">
+      <label for="colorOne">
+        <input type="color" name="colorOne" id="colorOne" class="color red">
+      </label>
+      <h2 class="equal">+</h2>
+      <label for="colorTwo">
+        <input type="color" id="colorTwo" name="colorTwo" class="color blue">
+      </label>
+      <h2 class="equal">+</h2>
+      <label for="colorThree">
+        <input type="color" id="colorThree" name="colorThree" class="color green">
+      </label>
+      <h2 class="equal">=</h2>
+      <label for="colorResult">
+        <input type="color" id="colorResult" name="colorResult" class="color">
+      </label>
+    </div>
+    <h4 id="result"></h4>
+    <div class="wrap-button">
+      <button type="submit" class="btn-start">Start</button>
+      <button type="submit" class="btn-fill">Fill Color</button>
+      <button type="submit" class="btn-stop">Stop</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
