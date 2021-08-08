@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Notes Apps</h1>
+  </header>
+
+  <main>
+    <div class="wrap-addNote">
+      <h4>Create New Note</h4>
+      <button class="btn btn-add" id="btnAdd"></button>
+    </div>
+
+    <div class="container-create">
+      <div class="wrap-text">
+        <button class="btn btn-bold" id="btnBold"></button>
+        <button class="btn btn-italic" id="btnItalic"></button>
+        <button class="btn btn-underline" id="btnUnderline"></button>
+      </div>
+
+      <div class="wrap-input">
+        <input type="text" id="inputTitle" class="input-title" placeholder="Title" required>
+        <textarea name="" id="inputDescription" class="input-description" placeholder="Description" required></textarea>
+      </div>
+
+      <div class="setting">
+        <button class="btn btn-save" id="btnSave"></button>
+      </div>
+    </div>
+
+    <div class="container" id="container">
+
+    </div>
+  </main>
+  <script src="./app.js"></script>
+</body>
+
+</html>
