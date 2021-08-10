@@ -79,12 +79,19 @@ header h1 {
 }
 
 .container-create .wrap-text {
-  background-color: #c4c4c425;
+  background-color: #c4c4c438;
   position: absolute;
-  right: 16px;
+  right: 60px;
   top: 10px;
-  padding: 5px;
+  padding: 3px 15px 10px;
   border-radius: 10px;
+}
+
+.container-create .btn-close {
+  background-image: url('./assets/close.svg');
+  position: absolute;
+  top: 20px;
+  right: 25px;
 }
 
 .container-create .btn-bold {
@@ -92,6 +99,7 @@ header h1 {
 }
 .container-create .btn-italic {
   background-image: url("./assets/italic.svg");
+  margin: 0 5px;
 }
 .container-create .btn-underline {
   background-image: url("./assets/underline.svg");
@@ -105,7 +113,7 @@ header h1 {
   background-image: url("./assets/save.svg");
 }
 
-.container-create .btn-bold, .container-create .btn-italic, .container-create .btn-underline, .container-create .btn-delete, .container-create .btn-save {
+.container-create .btn-bold, .container-create .btn-italic, .container-create .btn-underline, .container-create .btn-delete, .container-create .btn-save, .container-create .btn-close {
   width: 20px;
   height: 20px;
 }

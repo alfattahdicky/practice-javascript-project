@@ -1,7 +1,8 @@
 const createNoteEl = document.querySelector('.wrap-addNote');
-const containerCreateEl = document.querySelector('.container-create')
-const containerEl = document.getElementById('container')
-const btnSaveEl = document.getElementById('btnSave')
+const containerCreateEl = document.querySelector('.container-create');
+const containerEl = document.getElementById('container');
+const btnCloseEl = document.getElementById('btnClose');
+const btnSaveEl = document.getElementById('btnSave');
 const inputTitleEl = document.getElementById('inputTitle');
 const inputDescriptionEl = document.getElementById('inputDescription');
 
@@ -11,7 +12,7 @@ function createNoteElement(title, description) {
 
   const settingEl = document.createElement('div');
   settingEl.classList.add('setting');
-  settingEl.appendChild(createDeleteButton());
+  settingEl.append(createEditButton(), createDeleteButton());
 
   const titleEl = document.createElement('h1');
   titleEl.classList.add('title');
@@ -58,12 +59,30 @@ function createDeleteButton() {
   });
 
   return buttonEl;
-}
+};
+
+function createEditButton() {
+  const buttonEl = document.createElement('button');
+  buttonEl.className = 'btn btn-edit';
+  buttonEl.addEventListener('click', function (e) {
+    let cardTitle = e.target.parentElement.parentElement.children[1].innerText;
+    let inputTitle = containerCreateEl.children[1].children[0];
+
+    let cardDescription = e.target.parentElement.parentElement.children[2].innerText;
+    let inputDescription = containerCreateEl.children[1].children[1];
+
+    inputTitle.value = cardTitle;
+    inputDescription.value = cardDescription;
+    containerCreateEl.style.transform = 'translate(-50%, -50%)';
+  });
+
+  return buttonEl;
+};
+
 
 createNoteEl.addEventListener('click', function () {
   containerCreateEl.style.transform = 'translate(-50%, -50%)';
 });
-
 
 btnSaveEl.addEventListener('click', function () {
   if (inputTitleEl.value === '' || inputDescriptionEl.value === '') {
@@ -76,3 +95,8 @@ btnSaveEl.addEventListener('click', function () {
   }
 });
 
+btnCloseEl.addEventListener('click', function () {
+  containerCreateEl.style.transform = 'translate(-50%, -300%)';
+});
+
+console.log(containerCreateEl.children[1].children[1]);
