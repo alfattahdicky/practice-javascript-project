@@ -66,25 +66,32 @@ function createEditButton() {
   buttonEl.className = 'btn btn-edit';
   buttonEl.addEventListener('click', function (e) {
     let cardTitle = e.target.parentElement.parentElement.children[1].innerText;
-    let inputTitle = containerCreateEl.children[1].children[0];
-
     let cardDescription = e.target.parentElement.parentElement.children[2].innerText;
-    let inputDescription = containerCreateEl.children[1].children[1];
+
+    let inputTitle = containerCreateEl.children[2].children[0];
+    let inputDescription = containerCreateEl.children[2].children[1];
 
     inputTitle.value = cardTitle;
     inputDescription.value = cardDescription;
-    containerCreateEl.style.transform = 'translate(-50%, -50%)';
+    btnSaveEl.removeEventListener('click', saveNote);
+
+    btnSaveEl.onclick = function () {
+      e.path[2].children[1].innerText = inputTitle.value;
+      e.path[2].children[2].innerText = inputDescription.value;
+      transformCreateNote(300);
+    };
+
+    transformCreateNote(50);
   });
 
   return buttonEl;
 };
 
+function transformCreateNote(persentase) {
+  return containerCreateEl.style.transform = `translate(-50%, -${persentase}%)`;
+}
 
-createNoteEl.addEventListener('click', function () {
-  containerCreateEl.style.transform = 'translate(-50%, -50%)';
-});
-
-btnSaveEl.addEventListener('click', function () {
+function saveNote() {
   if (inputTitleEl.value === '' || inputDescriptionEl.value === '') {
     console.log('Masih Kosong');
   } else {
@@ -93,10 +100,14 @@ btnSaveEl.addEventListener('click', function () {
     inputTitleEl.value = '';
     inputDescriptionEl.value = '';
   }
+}
+
+createNoteEl.addEventListener('click', function () {
+  transformCreateNote(50);
 });
+
+btnSaveEl.addEventListener('click', saveNote);
 
 btnCloseEl.addEventListener('click', function () {
-  containerCreateEl.style.transform = 'translate(-50%, -300%)';
+  transformCreateNote(300);
 });
-
-console.log(containerCreateEl.children[1].children[1]);

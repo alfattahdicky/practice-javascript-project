@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap'); */
 
 :root {
   --primary-color: #082032;
@@ -79,11 +79,11 @@ header h1 {
 }
 
 .container-create .wrap-text {
-  background-color: #c4c4c438;
+  background-color: #c4c4c441;
   position: absolute;
   right: 60px;
   top: 10px;
-  padding: 3px 15px 10px;
+  padding: 10px 15px 6px;
   border-radius: 10px;
 }
 
