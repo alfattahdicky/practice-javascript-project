@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Public Sans', sans-serif;
+  line-height: 1.5;
+}
+
+.container{
+  padding: 100px 50px;
+}
+
+.container h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  width: 30ch;
+}
+
+.container p {
+  margin: 40px 0 0;
+  font-size: 1.4rem;
+}
+
+button {
+  border: none;
+  outline: none;
+  display: block;
+  margin: 10px auto 0;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background: rgb(10, 10, 10);
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform .2s ease-in-out;
+  transform: scale(1) translateY(0);
+}
+
+button:hover {
+  transform: scale(0.98) translateY(3px);
+}
