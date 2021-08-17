@@ -111,6 +111,15 @@ header h1 {
 }
 .container-create .btn-save {
   background-image: url("./assets/save.svg");
+  display: none;
+}
+
+.container-create .btn-done {
+  font-size: 1.2rem;
+  background-color: var(--primary-color);
+  padding: 0.5rem 1.2rem;
+  color: var(--light-color);
+  border-radius: 10px;
 }
 
 .container-create .btn-bold, .container-create .btn-italic, .container-create .btn-underline, .container-create .btn-delete, .container-create .btn-save, .container-create .btn-close {
@@ -159,6 +168,9 @@ header h1 {
   position: absolute;
   bottom: 20px;
   right: 30px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .container {
