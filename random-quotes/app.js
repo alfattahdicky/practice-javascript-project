@@ -11,16 +11,20 @@ const quotesEl = document.getElementById('quotes');
 const authorEl = document.getElementById('author');
 
 function generateQuotes() {
-  let randomIndex = 0;
-  let entriesObject = Object.entries(quotes);
-  for (let i = 0; i < entriesObject.length; i++) {
-    randomIndex = Math.floor(Math.random() * i);
-  }
-  let quote = entriesObject[randomIndex][1];
-  let author = entriesObject[randomIndex][0];
+  // let randomIndex = 0;
+  // let entriesObject = Object.entries(quotes);
+  // for (let i = 0; i < entriesObject.length; i++) {
+  //   randomIndex = Math.floor(Math.random() * i);
+  // }
+  // let quote = entriesObject[randomIndex][1];
+  // let author = entriesObject[randomIndex][0];
+
+
+  let authors = Object.keys(quotes)
+  let author = authors[Math.floor(Math.random() * authors.length)];
+  let quote = quotes[author];
 
   quotesEl.textContent = quote;
   authorEl.textContent = author;
 };
-
 btnGenerateEl.addEventListener('click', generateQuotes);
