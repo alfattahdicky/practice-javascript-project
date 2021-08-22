@@ -2,10 +2,7 @@ const leftEl = document.querySelector('.left');
 const rightEl = document.querySelector('.right');
 const imgs = document.querySelectorAll('img');
 
-
 let index = 0;
-
-
 function slideImage() {
   for (let i = 0; i < imgs.length; i++) imgs[i].style.display = 'none';
 
