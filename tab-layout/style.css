@@ -8,7 +8,39 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  line-height: 1.5;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.container {
+  width: 550px;
+  height: 400px;
+  padding: 2em 3em;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.267);
+}
+
+.tab {
+  margin-bottom: 1.2em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 4em;
+}
+
+.content {
+  padding-top: 0.5em;
 }
 
 .content {
@@ -17,4 +49,8 @@ body {
 
 .content.active {
   display: block;
+}
+
+.content p {
+  line-height: 2;
 }
