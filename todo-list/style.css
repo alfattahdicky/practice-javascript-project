@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.5;
+  display: grid;
+  place-items: start;
+  padding: 5em 10em;
+}
+
+.container {
+  margin-bottom: 10em;
+}
+
+.container h1 {
+  font-size: 2em;
+  width: 500px;
+}
+
+.container .add-list {
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-list .input-list {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 0.8em 1em;
+  margin-right: 1em;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.349);
+}
+
+.add-list .btn-add {
+  outline: none;
+  border: none;
+  background-color: #000;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 1em;
+  padding: 0.8em 2.5em;
+  cursor: pointer;
+  box-shadow: none;
+  transition: box-shadow .2s ease-in-out;
+}
+
+.add-list .btn-add:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.397) ;
+}
+
+.container .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.item .item-action button{
+  outline: none;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  letter-spacing: 1px;
+  padding: 0.8em 1.2em;
+  cursor: pointer;
+  border-radius: 10px;
+  transform: scale(1);
+  transition: all .1s ease;
+}
+
+.item .item-action button:first-child {
+  margin-right: 1em;
+}
+
+.item .item-action button:hover {
+  transform: scale(0.95);
+}
+
+.item .inputEdit {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 0.8em 1em;
+  margin-right: 1em;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.349);
+  
+}
+
+
+
