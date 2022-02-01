@@ -1,15 +1,18 @@
 const inputList = document.getElementById('inputList');
 const btnAdd = document.getElementById('btnAdd');
 const containerListItem = document.querySelector('.list-item');
-const btnDelete = document.getElementById('deleteItem');
+let idEditText;
+let idMakeTodo;
 
-function templateList(text) {
+function templateList(id, text) {
   const container = document.createElement('div');
   const item = document.createElement('p');
   const itemAction = document.createElement('div');
 
   container.classList.add('item');
+  container.setAttribute('id', id);
   itemAction.classList.add('item-action');
+  item.classList.add('nama_barang');
   item.textContent = text;
 
   container.appendChild(item);
@@ -17,53 +20,6 @@ function templateList(text) {
   itemAction.appendChild(createEditButton());
   itemAction.appendChild(createDeleteButton());
   return containerListItem.appendChild(container);
-}
-
-function createButton(nameId, text, eventListener) {
-  const button = document.createElement('button');
-  button.setAttribute('id', nameId);
-  button.innerText = text;
-
-  button.addEventListener('click', function(event) {
-    eventListener(event);
-  })
-
-  return button;
-}
-
-function createEditButton() {
-  return createButton('editButton', 'Edit', function(event){
-    editButton(event.target.parentElement);
-  })
-}
-
-function createDeleteButton() {
-  return createButton('deleteButton', 'Delete', function(event) {
-    deleteButton(event.target.parentElement.parentElement);
-  });  
-}
-
-function createOkEditButton() {
-  return createButton('okButton', 'Ok', function(event) {
-    okButton(event.target.parentElement);
-  })
-}
-
-function deleteButton(e) {
-  e.remove();
-}
-
-function editButton(e) {
-  const text = e.parentElement.firstChild;
-  text.style.display = 'none';
-  editText(text.innerText);
-  e.parentElement.remove();
-}
-
-function okButton(e) {
-  const input = e.parentElement.firstChild;
-  templateList(input.value);
-  e.parentElement.remove();
 }
 
 function editText(value) {
@@ -84,9 +40,93 @@ function editText(value) {
 }
 
 
+function createButton(nameId, text, eventListener) {
+  const button = document.createElement('button');
+  button.setAttribute('id', nameId);
+  button.innerText = text;
+
+  button.addEventListener('click', function(event) {
+    eventListener(event);
+  })
+
+  return button;
+}
+
 btnAdd.addEventListener('click', function(e) {
-  const value = e.target.parentElement.firstElementChild;
-  if(value.value !== "") {
-    templateList(inputList.value);
+  const input = e.target.parentElement.firstElementChild;
+
+  if(input.value !== "") {
+    if(checkStorage()) {
+      arrTodo.push(composeTodoObj(inputList.value));
+      templateList(findTodo(), inputList.value);
+      addTodoToStorage();
+    }
+  }
+  input.value = "";
+});
+
+function createEditButton() {
+  return createButton('editButton', 'Edit', function(event){
+    editButton(event.target.parentElement);
+  })
+}
+
+function createDeleteButton() {
+  return createButton('deleteButton', 'Delete', function(event) {
+    deleteButton(event.target.parentElement.parentElement);
+  });  
+}
+
+function createOkEditButton() {
+  return createButton('okButton', 'OK', function(event) {
+    okButton(event.target.parentElement);
+  })
+}
+
+function deleteButton(e) {
+  const getIdItem = e.getAttribute('id');
+  for(todo of arrTodo) {
+    if(todo.id.toString() === getIdItem) {
+      arrTodo.splice(index, 1);
+      e.remove();
+    }
+    index++;
+  }
+  addTodoToStorage();
+}
+
+function editButton(e) {
+  const text = e.parentElement.firstChild;
+  idEditText = e.parentElement.getAttribute('id');
+
+  editText(text.innerText);
+  text.style.display = 'none';
+  e.parentElement.remove();
+}
+
+function okButton(e) {
+  const input = e.parentElement.firstChild;
+  for(todo of arrTodo) {
+    if(todo.id.toString() === idEditText) {
+      todo.text = input.value;
+    }
+  }
+  templateList(idEditText, input.value);
+  addTodoToStorage();
+  e.parentElement.remove();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if(checkStorage()) {
+    const datas = JSON.parse(localStorage.getItem(TODO_KEY));
+    if(datas !== null) {
+      for(data of datas) {
+        templateList(data.id, data.text);
+        arrTodo.push({
+          id: data.id,
+          text: data.text
+        });
+      }
+    } 
   }
 });
