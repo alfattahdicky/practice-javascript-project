@@ -85,6 +85,7 @@ function createOkEditButton() {
 
 function deleteButton(e) {
   const getIdItem = e.getAttribute('id');
+  let index = 0;
   for(todo of arrTodo) {
     if(todo.id.toString() === getIdItem) {
       arrTodo.splice(index, 1);
